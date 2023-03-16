@@ -1,4 +1,6 @@
-﻿using HelloWorld.ViewModels;
+﻿using HelloWorld.Services;
+using HelloWorld.ViewModels;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace HelloWorld;
 
@@ -13,6 +15,7 @@ public class ServiceLocator
     {
         var serviceCollection = new ServiceCollection();
         serviceCollection.AddSingleton<MainPageViewModel>();
+        serviceCollection.AddSingleton<IKeyValueStorage, KeyValueStorage>();
         _serviceProvider = serviceCollection.BuildServiceProvider();
     }
 }

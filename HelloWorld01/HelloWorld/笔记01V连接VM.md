@@ -251,7 +251,7 @@ namespace HelloWorld.ViewModels
 
 
 
-设计模式:  <font color = red> 服务定位器模式 </font>
+设计模式:  <font color = red> 服务定位器模式  </font>   依赖注入
 
 **步骤**
 
@@ -453,3 +453,16 @@ MVVM架构下的 几种  数据操作  ,
 
 不需要数据库 , 让类自动变成数据库表;
 
+
+
+# B站评论总结:
+
+
+
+> 用的是servicelocator模式，这种模式存在一个限制，==所有的viewmodel只能是单例的==，如果同一个视图存在了多个示例，那么这种方法就存在问题了，这种情况下，应该指定datatype才能获得编译时提示
+
+
+
+> windows和android它们的界面布局怎么自适应呀，总是调好一个，另一个就乱了
+
+* Onplatform

@@ -44,6 +44,16 @@
             <Label Text="{Binding Result}"></Label>
             <Button Text="数据绑定"
                     Command="{Binding ClickMeCommand}"></Button>
+
+            <!--键值存储-->
+            <Entry Text="{Binding Result}"></Entry>
+            <Button Command="{Binding ReadCommand}" Text="Read"></Button>
+            <Button Command="{Binding WriteCommand}" Text="Write"></Button> 
+
+            <!--工业化开发-->
+            <Label Text="{Binding Result01}"></Label>
+            <Button Text="数据绑定"
+                    Command="{Binding ClickMe01Command}"></Button>
         </VerticalStackLayout>
     </ScrollView>
 
