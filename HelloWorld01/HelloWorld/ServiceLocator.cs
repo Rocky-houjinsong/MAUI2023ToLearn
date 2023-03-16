@@ -15,7 +15,8 @@ public class ServiceLocator
     {
         var serviceCollection = new ServiceCollection();
         serviceCollection.AddSingleton<MainPageViewModel>();
-        serviceCollection.AddSingleton<IKeyValueStorage, KeyValueStorage>();
+        // serviceCollection.AddSingleton<IKeyValueStorage, KeyValueStorage>();
+        serviceCollection.AddSingleton<IPoetryStorage, PoetryStorage>();
         _serviceProvider = serviceCollection.BuildServiceProvider();
     }
 }

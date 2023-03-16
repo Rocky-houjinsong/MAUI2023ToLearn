@@ -4,8 +4,8 @@ namespace HelloWorld.Services;
 
 public interface IPoetryStorage
 {
-    Task Initialize();
-    void Add(Poetry poetry);
+    Task InitializeAsync();
+    Task AddAsync(Poetry poetry);
 
-    IEnumerable<Poetry> List();
+    Task<IEnumerable<Poetry>> ListAsync();
 }

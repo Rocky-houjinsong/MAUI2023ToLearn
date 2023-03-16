@@ -18,17 +18,17 @@ public class PoetryStorage : IPoetryStorage
     public SQLiteAsyncConnection Connection =>
         _connection ??= new SQLiteAsyncConnection(PoetryDbPath);
 
-    public async Task Initialize() =>
+    public async Task InitializeAsync() =>
         await Connection.CreateTableAsync<Poetry>();
 
 
-    public void Add(Poetry poetry)
+    public async Task AddAsync(Poetry poetry)
     {
-        throw new NotImplementedException();
+        await Connection.InsertAsync(poetry);
     }
 
-    public IEnumerable<Poetry> List()
+    public async Task<IEnumerable<Poetry>> ListAsync()
     {
-        throw new NotImplementedException();
+        return await Connection.Table<Poetry>().ToListAsync();
     }
 }

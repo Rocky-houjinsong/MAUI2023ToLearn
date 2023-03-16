@@ -1,5 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using HelloWorld.Models;
 using HelloWorld.Services;
 
 namespace HelloWorld.ViewModels
@@ -51,30 +53,92 @@ namespace HelloWorld.ViewModels
         /// </summary>
         /// <remarks>构造函数的方式进行依赖注入,将ViewModel所必须的Service关联起来</remarks>
         /// <param name="keyValueStorage">键值存储</param>
-        public MainPageViewModel(IKeyValueStorage keyValueStorage)
-        {
-            _keyValueStorage = keyValueStorage;
-        }
+        // public MainPageViewModel(IKeyValueStorage keyValueStorage)
+        // {
+        //     _keyValueStorage = keyValueStorage;
+        // }
 
         /// <summary>
         /// 显式声明 默认构造函数
         /// </summary>
         /// <remarks>数据绑定案例使用的是 默认构造函数, 由于编写带参构造函数,默认的需要显式声明</remarks>
-        public MainPageViewModel()
+        // public MainPageViewModel()
+        // {
+        // }
+
+        //*****************数据库,诗词存储需要的
+        private IPoetryStorage _poetryStorage;
+
+        public MainPageViewModel(IPoetryStorage poetryStorage)
         {
+            _poetryStorage = poetryStorage;
         }
 
         #endregion
 
         #region 工业化开发:简化
 
-        [ObservableProperty] private string _result01; //此时 需要将类变为分部类
+        /*
+         *关闭MainPage.xaml中的 相关代码;
+         */
 
-        [RelayCommand]
-        private void ClickMe01()
+        // [ObservableProperty] private string _result01; //此时 需要将类变为分部类
+        //
+        // [RelayCommand]
+        // private void ClickMe01()
+        // {
+        //     Result01 = "工业化开发";
+        // }
+
+        #endregion
+
+        #region 数据库访问:诗词存储
+
+        /// <summary>
+        /// 诗词集合
+        /// </summary>
+        /// <remarks>只读属性, </remarks>
+        public ObservableCollection<Poetry> Poetries { get; } =
+            new ObservableCollection<Poetry>();
+
+        public ObservableCollection<Poetry> Poetries2
         {
-            Result01 = "工业化开发";
+            get => new ObservableCollection<Poetry>();
         }
+
+        public ObservableCollection<Poetry> Poetries3 =>
+            new ObservableCollection<Poetry>();
+        //**********************Command命令集合
+
+        private RelayCommand _initializeCommand;
+
+        public RelayCommand InitializeCommand =>
+            _initializeCommand ??= new RelayCommand(async () => { await _poetryStorage.InitializeAsync(); });
+
+        private RelayCommand _addCommand;
+
+        public RelayCommand AddCommand =>
+            _addCommand ??= new RelayCommand(async () =>
+            {
+                await _poetryStorage.AddAsync(
+                    new Poetry
+                    {
+                        Title = "Title",
+                        Content = "Content"
+                    });
+            });
+
+        private RelayCommand _listCommand;
+
+        public RelayCommand ListCommand =>
+            _listCommand ??= new RelayCommand(async () =>
+            {
+                var listAsync = await _poetryStorage.ListAsync();
+                foreach (var poetry in listAsync)
+                {
+                    Poetries.Add(poetry);
+                }
+            });
 
         #endregion
     }
