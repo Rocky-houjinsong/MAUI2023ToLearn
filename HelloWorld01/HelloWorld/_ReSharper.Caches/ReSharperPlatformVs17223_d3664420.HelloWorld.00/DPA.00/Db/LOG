@@ -1,2 +1,5 @@
-2023/03/15-11:41:09.141000 16452 Creating DB D:\MAUI2023\HelloWorld01\HelloWorld\_ReSharper.Caches\ReSharperPlatformVs17223_d3664420.HelloWorld.00\DPA.00\Db since it was missing.
-2023/03/15-11:41:09.877000 16452 Delete type=3 #1
+2023/03/17-11:07:23.626000 27404 Recovering log #15
+2023/03/17-11:07:23.640000 27404 Level-0 table #18: started
+2023/03/17-11:07:23.682000 27404 Level-0 table #18: 671 bytes OK
+2023/03/17-11:07:23.747000 27404 Delete type=0 #15
+2023/03/17-11:07:23.747000 27404 Delete type=3 #13

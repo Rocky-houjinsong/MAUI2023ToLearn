@@ -4,5 +4,32 @@
         <name>HelloWorld</name>
     </assembly>
     <members>
+        <member name="P:HelloWorld.ViewModels.MainPageViewModel.ReadCommand">
+            <summary>
+            读取,并赋值给Result属性
+            </summary>
+        </member>
+        <member name="F:HelloWorld.ViewModels.MainPageViewModel._poetryStorage">
+            <summary>
+            显式声明 默认构造函数
+            </summary>
+            <remarks>数据绑定案例使用的是 默认构造函数, 由于编写带参构造函数,默认的需要显式声明</remarks>
+        </member>
+        <member name="P:HelloWorld.ViewModels.MainPageViewModel.Poetries">
+            <summary>
+            诗词集合
+            </summary>
+            <remarks>只读属性, </remarks>
+        </member>
+        <member name="P:HelloWorld.ViewModels.MainPageViewModel.Json">
+            <summary>
+            Json属性.
+            </summary>
+        </member>
+        <member name="F:HelloWorld.ViewModels.MainPageViewModel._json">
+            <summary>
+            Json属性.
+            </summary>
+        </member>
     </members>
 </doc>

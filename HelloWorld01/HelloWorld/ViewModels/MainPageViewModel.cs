@@ -48,11 +48,11 @@ namespace HelloWorld.ViewModels
         #region 构造函数
 
         //***********************构造函数
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        /// <remarks>构造函数的方式进行依赖注入,将ViewModel所必须的Service关联起来</remarks>
-        /// <param name="keyValueStorage">键值存储</param>
+        // /// <summary>
+        // /// 构造函数
+        // /// </summary>
+        // /// <remarks>构造函数的方式进行依赖注入,将ViewModel所必须的Service关联起来</remarks>
+        // /// <param name="keyValueStorage">键值存储</param>
         // public MainPageViewModel(IKeyValueStorage keyValueStorage)
         // {
         //     _keyValueStorage = keyValueStorage;
@@ -72,6 +72,15 @@ namespace HelloWorld.ViewModels
         public MainPageViewModel(IPoetryStorage poetryStorage)
         {
             _poetryStorage = poetryStorage;
+        }
+
+
+        private ITokenService _tokenService;
+
+        public MainPageViewModel(IPoetryStorage poetryStorage, ITokenService tokenService)
+        {
+            _poetryStorage = poetryStorage;
+            _tokenService = tokenService;
         }
 
         #endregion
@@ -98,7 +107,7 @@ namespace HelloWorld.ViewModels
         /// 诗词集合
         /// </summary>
         /// <remarks>只读属性, </remarks>
-        public ObservableCollection<Poetry> Poetries { get; } =
+        public ObservableCollection<Poetry> Poetries { get; set; } =
             new ObservableCollection<Poetry>();
 
         public ObservableCollection<Poetry> Poetries2
@@ -133,12 +142,45 @@ namespace HelloWorld.ViewModels
         public RelayCommand ListCommand =>
             _listCommand ??= new RelayCommand(async () =>
             {
+                Poetries.Clear();
                 var listAsync = await _poetryStorage.ListAsync();
                 foreach (var poetry in listAsync)
                 {
                     Poetries.Add(poetry);
                 }
             });
+
+
+        private RelayCommand _deleteCommand;
+
+        public RelayCommand DeleteCommand =>
+            _deleteCommand ??= new RelayCommand(async () => { await _poetryStorage.DeleteAsync(); });
+
+        #endregion
+
+        #region Web访问:JSON
+
+        // 可绑定属性
+        /// <summary>
+        /// Json属性.
+        /// </summary>
+        public string Json
+        {
+            get => _json;
+            set => SetProperty(ref _json, value);
+        }
+
+        /// <summary>
+        /// Json属性.
+        /// </summary>
+        private string _json;
+
+        private RelayCommand _loadJson;
+
+        public RelayCommand LoadJson => _loadJson ??= new RelayCommand(async () =>
+        {
+            Json = await _tokenService.GetTokenAsync();
+        });
 
         #endregion
     }

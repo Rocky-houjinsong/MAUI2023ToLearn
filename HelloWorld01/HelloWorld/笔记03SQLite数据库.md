@@ -1,4 +1,4 @@
-# 01 待定
+# 01 数据库:读取数据库内容
 
 ---
 
@@ -52,7 +52,7 @@ first-code;
 
 ----
 
-## 实现service:PoetryStorage
+## 03实现service:PoetryStorage
 
 ---
 
@@ -129,7 +129,7 @@ public class PoetryStorage : IPoetryStorage
 }
 ```
 
-## 注册服务
+## 04注册服务
 
 > 以上编写 访问数据库进行 对诗词的 初始化, 插入和读取, ;
 >
@@ -142,7 +142,7 @@ serviceCollection.AddSingleton<IPoetryStorage, PoetryStorage>();
 
 
 
-## 重写MainPageViewModel
+## 05重写MainPageViewModel
 
 ---
 
@@ -255,17 +255,125 @@ MAUI  读法 ,马鸥一 ;
 
 
 
+对`Poetry` 多个属性 综合生成  lable ,该怎么显示呢?
+
+> 将 title 和 content  拼接;
+
+* 虚拟化属性  --> 改变业务逻辑  [Ingore]标记
+* 数据转换器 --> 只适用UI层
+* wrapper类 ,将poetry类包装起来; 适配器模式;  -->万能,但是 代码有点多
+
+
+
+## 06View控件绑定属性
+
+---
+
+```xaml
+ <CollectionView Grid.Row="0" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         ItemsSource="{Binding Poetries}">
+                <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <VerticalStackLayout Padding="8">
+                        <Label Text="{Binding Title}" FontSize="22"></Label>
+                        <Label Text="{Binding Content}"></Label>
+                    </VerticalStackLayout>
+
+                </DataTemplate>
+        </CollectionView.ItemTemplate>
+                 
+             
+         </CollectionView> 
+```
 
 
 
 
 
-
-
-
-# 与Web服务
+# Web服务:Json
 
 :key: **使用模板快速生成代码**
+
+
+
+>  **编写`访问Web服务`**
+
+访问Web 服务,就是一个异步服务调用过程;
+
+示例中的访问web 很简单,  
+
+之后有严格的访问方法;
+
+```c#
+public interface ITokenService
+{
+    Task<string> GetTokenAsync();
+}
+```
+
+```c#
+ public class TokenService : ITokenService
+    {
+        public async Task<string> GetTokenAsync()
+        {
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetAsync("https://v2.jinrishici.com/token");
+            var json = await response.Content.ReadAsStringAsync();
+            return json;
+        }
+    }
+```
+
+
+
+> **注册服务**   servicelocator
+
+```c#
+serviceCollection.AddSingleton<ITokenService, TokenService>();
+```
+
+
+
+> **读取数据**  
+>
+> ViewModel 中 以 属性的方式  承载数据
+
+```c#
+  public string Json
+        {
+            get => _json;
+            set => SetProperty(ref _json, value);
+        }
+
+        /// <summary>
+        /// Json属性.
+        /// </summary>
+        private string _json;
+```
+
+
+
+> **使用服务**
+>
+> 以可绑定命令的方式调用 服务
+
+```c#
+  private string _json;
+
+        private RelayCommand _loadJson;
+
+        public RelayCommand LoadJson => _loadJson ??= new RelayCommand(async () =>
+        {
+            Json = await _tokenService.GetTokenAsync();
+        });
+```
+
+
+
+
 
 # B站评论总结:
 

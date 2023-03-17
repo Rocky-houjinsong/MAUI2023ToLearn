@@ -1,15 +1,30 @@
 ﻿<RecentlyViewedMethods>
   <RecentlyViewedMethods>
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/P%3AHelloWorld.ViewModels.MainPageViewModel.Json" />
     <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/M%3AHelloWorld.ServiceLocator.%23ctor" />
-    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/M%3AHelloWorld.ServiceLocator.%23ctor" />
-    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/M%3AHelloWorld.ServiceLocator.%23ctor" />
-    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/M%3AHelloWorld.ServiceLocator.%23ctor" />
-    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/P%3AHelloWorld.ServiceLocator.MainPageViewModel" />
-    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/F%3AHelloWorld.ServiceLocator._serviceProvider" />
-    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/P%3AHelloWorld.ViewModels.MainPageViewModel.ClickMeCommand" />
-    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/M%3AHelloWorld.MainPage.OnCounterClicked%28System.Object%2CSystem.EventArgs%29" />
-    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/F%3AHelloWorld.ViewModels.MainPageViewModel._clickMeCommand" />
-    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/M%3AHelloWorld.ViewModels.MainPageViewModel.set_Result%28System.String%29" />
-    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/M%3AHelloWorld.MainPage.Button_OnClicked%28System.Object%2CSystem.EventArgs%29" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/P%3AHelloWorld.ViewModels.MainPageViewModel.LoadJson" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/P%3AHelloWorld.ViewModels.MainPageViewModel.Json" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/M%3AHelloWorld.ViewModels.MainPageViewModel.set_Json%28System.String%29" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/P%3AHelloWorld.ViewModels.MainPageViewModel.ListCommand" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/M%3AHelloWorld.Services.PoetryStorage.ListAsync" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/P%3AHelloWorld.ViewModels.MainPageViewModel.DeleteCommand" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/M%3AHelloWorld.Services.PoetryStorage.DeleteAsync" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/M%3AHelloWorld.Services.IPoetryStorage.DeleteAsync" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-maccatalyst%5D/M%3AHelloWorld.Services.PoetryStorage.DeleteAsync" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-maccatalyst%5D/P%3AHelloWorld.ViewModels.MainPageViewModel.DeleteCommand" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-maccatalyst%5D/M%3AHelloWorld.ViewModels.MainPageViewModel.set_Poetries%28System.Collections.ObjectModel.ObservableCollection%7BHelloWorld.Models.Poetry%7D%29" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-maccatalyst%5D/P%3AHelloWorld.ViewModels.MainPageViewModel.AddCommand" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-maccatalyst%5D/P%3AHelloWorld.ViewModels.MainPageViewModel.ListCommand" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-maccatalyst%5D/M%3AHelloWorld.Services.IPoetryStorage.DeleteAsync" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/M%3AHelloWorld.ViewModels.MainPageViewModel.%23ctor%28HelloWorld.Services.IPoetryStorage%29" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/M%3AHelloWorld.Services.IPoetryStorage.AddAsync%28HelloWorld.Models.Poetry%29" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/M%3AHelloWorld.Services.IPoetryStorage.InitializeAsync" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/M%3AHelloWorld.ServiceLocator.%23ctor" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/P%3AHelloWorld.ServiceLocator.MainPageViewModel" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/P%3AHelloWorld.ViewModels.MainPageViewModel.InitializeCommand" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-windows10.0.19041%5D/P%3AHelloWorld.ViewModels.MainPageViewModel.AddCommand" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/M%3AHelloWorld.Services.ITokenService.GetTokenAsync" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-android%5D/M%3AHelloWorld.Services.TokenService.GetTokenAsync" />
+    <RecentMethod id="2489436d-21a2-4a7c-9e01-269b2a18a97c%28HelloWorld%29-13%5Bnet6.0-maccatalyst%5D/M%3AHelloWorld.ViewModels.MainPageViewModel.%23ctor%28HelloWorld.Services.IPoetryStorage%2CHelloWorld.Services.ITokenService%29" />
   </RecentlyViewedMethods>
 </RecentlyViewedMethods>

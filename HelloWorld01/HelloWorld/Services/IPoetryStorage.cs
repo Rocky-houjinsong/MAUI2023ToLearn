@@ -8,4 +8,5 @@ public interface IPoetryStorage
     Task AddAsync(Poetry poetry);
 
     Task<IEnumerable<Poetry>> ListAsync();
+    Task DeleteAsync();
 }

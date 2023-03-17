@@ -31,4 +31,9 @@ public class PoetryStorage : IPoetryStorage
     {
         return await Connection.Table<Poetry>().ToListAsync();
     }
+
+    public async Task DeleteAsync()
+    {
+        await Connection.DeleteAllAsync<Poetry>();
+    }
 }

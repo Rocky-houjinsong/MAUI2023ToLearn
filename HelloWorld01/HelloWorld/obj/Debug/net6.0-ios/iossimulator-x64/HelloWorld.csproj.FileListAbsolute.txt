@@ -11,6 +11,10 @@ D:\MAUI2023\HelloWorld01\HelloWorld\bin\Debug\net6.0-ios\iossimulator-x64\Micros
 D:\MAUI2023\HelloWorld01\HelloWorld\bin\Debug\net6.0-ios\iossimulator-x64\Microsoft.Extensions.Options.dll
 D:\MAUI2023\HelloWorld01\HelloWorld\bin\Debug\net6.0-ios\iossimulator-x64\Microsoft.Extensions.Primitives.dll
 D:\MAUI2023\HelloWorld01\HelloWorld\bin\Debug\net6.0-ios\iossimulator-x64\Microsoft.Maui.Graphics.dll
+D:\MAUI2023\HelloWorld01\HelloWorld\bin\Debug\net6.0-ios\iossimulator-x64\SQLite-net.dll
+D:\MAUI2023\HelloWorld01\HelloWorld\bin\Debug\net6.0-ios\iossimulator-x64\SQLitePCLRaw.batteries_v2.dll
+D:\MAUI2023\HelloWorld01\HelloWorld\bin\Debug\net6.0-ios\iossimulator-x64\SQLitePCLRaw.core.dll
+D:\MAUI2023\HelloWorld01\HelloWorld\bin\Debug\net6.0-ios\iossimulator-x64\SQLitePCLRaw.provider.sqlite3.dll
 D:\MAUI2023\HelloWorld01\HelloWorld\bin\Debug\net6.0-ios\iossimulator-x64\Microsoft.CSharp.dll
 D:\MAUI2023\HelloWorld01\HelloWorld\bin\Debug\net6.0-ios\iossimulator-x64\Microsoft.VisualBasic.Core.dll
 D:\MAUI2023\HelloWorld01\HelloWorld\bin\Debug\net6.0-ios\iossimulator-x64\Microsoft.VisualBasic.dll
