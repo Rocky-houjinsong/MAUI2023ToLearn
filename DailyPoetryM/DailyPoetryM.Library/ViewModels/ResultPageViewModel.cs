@@ -31,6 +31,11 @@ public class ResultPageViewModel : ObservableObject
     //***********************构造函数
     public ResultPageViewModel(IPoetryStorage poetryStorage)
     {
+        //TODO 测试使用, 正式版需要删除
+        Where = Expression.Lambda<Func<Poetry, bool>>(Expression.Constant(true),
+            Expression.Parameter(typeof(Poetry), "p"));
+        //TODO 测试使用,正式版不可这样操作;
+        poetryStorage.InitializeAsync().Wait();
         Poetries = new MauiInfiniteScrollCollection<Poetry>
         {
             //判断能否加载数据,True还能加载
