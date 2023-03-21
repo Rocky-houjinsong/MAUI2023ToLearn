@@ -2,23 +2,17 @@
 using System.Threading.Channels;
 using DailyPoetryM.Models;
 using DailyPoetryM.Services;
+using DailyPoetryM.UnitText.Helpers;
 using Moq;
 
 namespace DailyPoetryM.UnitText.Services;
 
-public class PoetryStorageTest
+public class PoetryStorageTest : IDisposable
 {
     //初始化需要 清除
-    public PoetryStorageTest()
-    {
-        File.Delete(PoetryStorage.PoetryDbPath);
-    }
+    public PoetryStorageTest() => PoetryStorageHelper.RemoveDatabaseFile();
 
-    //初始化需要 清除
-    public void Dispose()
-    {
-        File.Delete(PoetryStorage.PoetryDbPath);
-    }
+    public void Dispose() => PoetryStorageHelper.RemoveDatabaseFile();
 
     [Fact]
     public void IsInitialized_Default()
@@ -39,7 +33,7 @@ public class PoetryStorageTest
         var mockPreferenceStorage = preferenceStorageMock.Object;
         var poetryStorage = new PoetryStorage(mockPreferenceStorage);
         Assert.False(File.Exists(PoetryStorage.PoetryDbPath));
-        await poetryStorage.InitializedAsync();
+        await poetryStorage.InitializeAsync();
         Assert.True(File.Exists(PoetryStorage.PoetryDbPath));
         preferenceStorageMock.Verify(p => p.Set(PoetryStorageConstant.VersionKey, PoetryStorageConstant.Version),
             Times.Once);
@@ -78,7 +72,7 @@ public class PoetryStorageTest
         var preferenceStorageMock = new Mock<IPreferenceStorage>();
         var mockPreferenceStorage = preferenceStorageMock.Object;
         var poetryStorage = new PoetryStorage(mockPreferenceStorage);
-        await poetryStorage.InitializedAsync();
+        await poetryStorage.InitializeAsync();
         return poetryStorage;
     }
 }

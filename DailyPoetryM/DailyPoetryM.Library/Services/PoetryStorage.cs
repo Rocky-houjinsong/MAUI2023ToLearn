@@ -33,7 +33,7 @@ public class PoetryStorage : IPoetryStorage
     public bool IsInitialized =>
         _preferenceStorage.Get(PoetryStorageConstant.VersionKey, 0) == PoetryStorageConstant.Version;
 
-    public async Task InitializedAsync()
+    public async Task InitializeAsync()
     {
         await using var dbFileStream =
             new FileStream(PoetryDbPath, FileMode.OpenOrCreate);

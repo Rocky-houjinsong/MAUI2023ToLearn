@@ -314,7 +314,62 @@ Assert.False(File.Exists(PoetryStorage.PoetryDbPath));
           //select * from Poetry Where TRUE
   ```
 
-  
+
+
+
+# RelayCommand与属性的测试
+
+---
+
+> ViewModel文件夹,  ResultPageViewModel文件
+
+> 准备查询条件; 语言集成查询 是 事实标准  
+
+此时报错 :
+
+> **一执行读取数据,就删文件**
+>
+> * 命令没执行
+> * 数据没取出来
+> * 返回没有放到集合中 
+>
+> ==找到了: 小心异步问题==  **多设置断点, 缩小出问题i的范围**
+
+|      | 名称       | 值                                                           | 类型                  |
+| ---- | ---------- | ------------------------------------------------------------ | --------------------- |
+| ◢    | $exception | {"The process cannot access the file 'C:\\Users\\hp\\AppData\\Local\\poetrydb.sqlite3' because it is being used by another process."} | System.IO.IOException |
+
+```c#
+ public static void RemoveDatabaseFile() =>
+        File.Delete(PoetryStorage.PoetryDbPath);
+```
+
+在于 `Excute` 是多线程执行; 读取数据库 操作慢,没哟执行完毕,就 开始判定数据库读取结果的问题;
+:key:  解决多线程 执行结果
+
+<font color =gree size = 5> 单元测试 + 多线程问题--> 剥离被测试的方法 </font>
+
+----
+
+> 上述测试的的Command方法, 接下来对属性的测试;
+
+常规测试 属性,就是执行,判断和比较最终结果;
+
+:interrobang:  但是,当 属性的值在运行过程中**不断地发生变化,该如何测试?**
+
+* 怎么测
+* 如何测
+* 为何这么测
+
+> 抓到属性值的变化;  
+>
+> 和数据绑定的方法一样; --> 借助事件解决
+>
+> 以集合 的方式,将 属性改变的变化记录下来;
+
+
+
+
 
 # **B站评论**
 

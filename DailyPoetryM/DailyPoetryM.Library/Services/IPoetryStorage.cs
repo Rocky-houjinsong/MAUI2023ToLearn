@@ -6,7 +6,7 @@ namespace DailyPoetryM.Services;
 public interface IPoetryStorage
 {
     bool IsInitialized { get; }
-    Task InitializedAsync();
+    Task InitializeAsync();
     Task<Poetry> GetPoetryAsync(int id);
 
     Task<IEnumerable<Poetry>> GetPoetriesAsync(
