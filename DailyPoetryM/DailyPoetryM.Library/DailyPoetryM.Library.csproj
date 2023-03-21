@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>DailyPoetryM</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="poetrydb.sqlite3" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <EmbeddedResource Include="poetrydb.sqlite3">
+		  <LogicalName>poetrydb.sqlite3</LogicalName>
+	  </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.4" />
+    <PackageReference Include="TheSalLab.MauiBehaviors" Version="1.0.2" />
+    <PackageReference Include="TheSalLab.MauiInfiniteScrolling" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
