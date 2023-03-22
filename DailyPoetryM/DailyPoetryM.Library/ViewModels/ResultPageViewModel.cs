@@ -28,14 +28,17 @@ public class ResultPageViewModel : ObservableObject
 
     public MauiInfiniteScrollCollection<Poetry> Poetries { get; }
 
+    //TODO 测试使用, 正式版需要删除
+    private readonly IPoetryStorage _poetryStorage;
+
     //***********************构造函数
     public ResultPageViewModel(IPoetryStorage poetryStorage)
     {
         //TODO 测试使用, 正式版需要删除
         Where = Expression.Lambda<Func<Poetry, bool>>(Expression.Constant(true),
             Expression.Parameter(typeof(Poetry), "p"));
-        //TODO 测试使用,正式版不可这样操作;
-        poetryStorage.InitializeAsync().Wait();
+        //TODO 测试使用, 正式版需要删除
+        _poetryStorage = poetryStorage;
         Poetries = new MauiInfiniteScrollCollection<Poetry>
         {
             //判断能否加载数据,True还能加载
@@ -76,6 +79,7 @@ public class ResultPageViewModel : ObservableObject
 
     public async Task NavigatedToCommandFunction()
     {
+        await _poetryStorage.InitializeAsync();
         Poetries.Clear();
         await Poetries.LoadMoreAsync();
     }
