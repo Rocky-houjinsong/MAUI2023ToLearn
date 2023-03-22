@@ -2,9 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:b="clr-namespace:TheSalLab.MauiBehaviors;assembly=TheSalLab.MauiBehaviors"
+             xmlns:lc="clr-namespace:DailyPoetryM.Converters"
+             xmlns:scroll="clr-namespace:TheSalLab.MauiInfiniteScrolling;assembly=MauiInfiniteScrolling"
              x:Class="DailyPoetryM.Pages.ResultPage"
              BindingContext="{Binding ResultPageViewModel, Source={StaticResource ServiceLocator}}"
              Title="ResultPage">
+    <!--事件转为Command-->
     <ContentPage.Behaviors>
         <b:MauiEventHandlerBehavior EventName="NavigatedTo">
             <b:MauiActionCollection>
@@ -14,15 +17,35 @@
             </b:MauiActionCollection>
         </b:MauiEventHandlerBehavior>
     </ContentPage.Behaviors>
+    <!--页面级资源注册-->
+    <ContentPage.Resources>
+        <lc:PoetryToStringConverter x:Key="PoetryToString"></lc:PoetryToStringConverter>
+    </ContentPage.Resources>
     <VerticalStackLayout>
-        <CollectionView  ItemsSource="{Binding Poetries}">
-            <CollectionView.ItemTemplate>
+<!--列表展示数据-->
+        <ListView  ItemsSource="{Binding Poetries}">
+            <ListView.Behaviors>
+                <scroll:MauiInfiniteScrollBehavior/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
                 <DataTemplate>
-                    <VerticalStackLayout Padding="8">
-                        <Label Text="{Binding Name}"></Label>
-                    </VerticalStackLayout>
+                    <ViewCell>
+                        <StackLayout Margin="0,8,8,8">
+                            <Label Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <!--<Label Text="{Binding Converter= {StaticResource PoetryToString }}"
+                               LineBreakMode="TailTruncation"/>-->
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <StackLayout Padding="8">
+                    <Label Text="{Binding Status}"
+                           HorizontalOptions="Center" />
+                </StackLayout>
+            </ListView.Footer>
+        </ListView>
 </VerticalStackLayout>
 </ContentPage>
+<!--自动换行 TailTruncation-->

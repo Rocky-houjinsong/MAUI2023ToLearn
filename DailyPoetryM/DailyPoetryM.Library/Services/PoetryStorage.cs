@@ -6,6 +6,8 @@ namespace DailyPoetryM.Services;
 
 public class PoetryStorage : IPoetryStorage
 {
+    public const int NumberPoetry = 30;
+
     //*******************************私有变量
     private readonly IPreferenceStorage _preferenceStorage;
 

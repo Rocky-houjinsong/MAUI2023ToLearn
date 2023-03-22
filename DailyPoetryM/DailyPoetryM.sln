@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DailyPoetryM", "DailyPoetry
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DailyPoetryM.UnitText", "DailyPoetryM.UnitText\DailyPoetryM.UnitText.csproj", "{02D70DE0-8274-4DE2-9AC4-9039AFB076A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyPoetryM.Library", "DailyPoetryM.Library\DailyPoetryM.Library.csproj", "{5CC90C1B-891E-42AE-8989-60E8EBEDF30E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DailyPoetryM.Library", "DailyPoetryM.Library\DailyPoetryM.Library.csproj", "{5CC90C1B-891E-42AE-8989-60E8EBEDF30E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
