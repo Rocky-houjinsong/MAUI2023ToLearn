@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DailyPoetryM.Pages.AboutPage"
+             BindingContext="{Binding AboutPageViewModel, Source={StaticResource ServiceLocator}}"
+             Title="AboutPage">
+    <ScrollView>
+        <StackLayout Padding="8">
+            <Label Text="DailyPoetryX"
+                   FontSize="28"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,16" />
+            <Label Margin="0,0,0,16">
+                DailyPoetryM (DPM)是东北大学软件学院“全栈开发技术”与“全栈开发技术实例与实现”课程的参考项目。DPM的功能带有较强的教学目的，因此并不推荐作为日常使用。
+            </Label>
+            <Label>DPM衍生自课程的学生作品DailyPoetry。</Label>
+            <Label Margin="0,0,0,16"
+                   TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenUrlCommand}"
+                                          CommandParameter="https://github.com/LauXy/DailyPoetry" />
+                </Label.GestureRecognizers>
+                关于DailyPoetry，请访问 https://github.com/LauXy/DailyPoetry
+            </Label>
+            <Label>经过与作者田文达先生的沟通，DPM使用了Mac应用“晓诗”及iPhone应用“如诗”的诗词数据库。如果您正在寻找优质的诗词应用，不妨试用一下“晓诗”和“如诗”。</Label>
+            <Label TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenUrlCommand}"
+                                          CommandParameter="https://apps.apple.com/cn/app/id1452183596" />
+                </Label.GestureRecognizers>
+                关于Mac应用“晓诗”，请访问 https://apps.apple.com/cn/app/id1452183596
+            </Label>
+            <Label Margin="0,0,0,16"
+                   TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenUrlCommand}"
+                                          CommandParameter="https://apps.apple.com/cn/app/id1457328199" />
+                </Label.GestureRecognizers>
+                关于iPhone应用“如诗”，请访问 https://apps.apple.com/cn/app/id1457328199
+            </Label>
+            <Label>“今日推荐”的诗词推荐来自今日诗词API。</Label>
+            <Label Margin="0,0,0,16"
+                   TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenUrlCommand}"
+                                          CommandParameter="https://www.jinrishici.com" />
+                </Label.GestureRecognizers>
+                关于今日诗词API，请访问 https://www.jinrishici.com
+            </Label>
+            <Label>“今日推荐”的图片背景来自必应。</Label>
+            <Label Margin="0,0,0,16"
+                   TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenUrlCommand}"
+                                          CommandParameter="https://www.bing.com/" />
+                </Label.GestureRecognizers>
+                关于必应，请访问 https://www.bing.com/
+            </Label>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

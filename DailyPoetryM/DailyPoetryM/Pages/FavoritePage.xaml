@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:b="clr-namespace:TheSalLab.MauiBehaviors;assembly=TheSalLab.MauiBehaviors"
+             xmlns:lc="clr-namespace:DailyPoetryM.Converters"
+             x:Class="DailyPoetryM.Pages.FavoritePage"
+             BindingContext="{Binding FavoritePageViewModel , Source={StaticResource ServiceLocator}}"
+             Title="FavoritePage">
+
+    <ContentPage.Behaviors>
+        <b:MauiEventHandlerBehavior EventName="Loaded">
+            <b:MauiActionCollection>
+                <b:MauiInvokeCommandAction Command="{Binding LoadedCommand}"></b:MauiInvokeCommandAction>
+            </b:MauiActionCollection>
+        </b:MauiEventHandlerBehavior>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <lc:PoetryToStringConverter x:Key="PoetryToString" />
+        <lc:ItemTappedEventArgsToPoetryFavoriteConverter
+            x:Key="ItemToPoetryFavorite" />
+    </ContentPage.Resources>
+
+    <ListView SelectionMode="None"
+              ItemsSource="{Binding PoetryFavoriteCollection}"
+              RowHeight="64">
+        <ListView.Behaviors>
+            <b:MauiEventHandlerBehavior EventName="ItemTapped">
+                <b:MauiActionCollection>
+                    <b:MauiInvokeCommandAction
+                        Command="{Binding PoetryTappedCommand}"
+                        Converter="{StaticResource ItemToPoetryFavorite}" />
+                </b:MauiActionCollection>
+            </b:MauiEventHandlerBehavior>
+        </ListView.Behaviors>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout>
+                        <StackLayout.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS"
+                                    Value="20,8,8,8" />
+                                <On Platform="Android, UWP"
+                                    Value="8,8,8,8" />
+                            </OnPlatform>
+                        </StackLayout.Margin>
+                        <Label Text="{Binding Poetry.Name}"
+                               FontAttributes="Bold" />
+                        <Label
+                            Text="{Binding Poetry, Converter={StaticResource PoetryToString}}"
+                            LineBreakMode="TailTruncation" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        <ListView.Footer>
+            <StackLayout Padding="8"
+                         IsVisible="{Binding IsLoading}">
+                <Label Text="正在载入"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </ListView.Footer>
+    </ListView>
+</ContentPage>

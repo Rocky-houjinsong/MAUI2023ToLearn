@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:b="clr-namespace:TheSalLab.MauiBehaviors;assembly=TheSalLab.MauiBehaviors"
+             xmlns:lc="clr-namespace:DailyPoetryM.Converters"
+             xmlns:lls="clr-namespace:DailyPoetryM.Services;assembly=DailyPoetryM.Library"
+             BindingContext="{Binding TodayPageViewModel,Source={StaticResource ServiceLocator} }"
+             x:Class="DailyPoetryM.Pages.TodayPage"
+             Title="TodayPage">
+    <ContentPage.Resources>
+        <!--<lc:BytesToImageSourceConverter x:Key="BytesToImageSource" />-->
+        <lc:TodayPoetrySourceToBoolConverter x:Key="SourceToBool" />
+        <lc:NegativeBoolConverter x:Key="NegativeBool" />
+    </ContentPage.Resources>
+
+    <ContentPage.Behaviors>
+        <b:MauiEventHandlerBehavior EventName="Loaded">
+            <b:MauiActionCollection>
+                <b:MauiInvokeCommandAction Command="{Binding LoadedCommand}"></b:MauiInvokeCommandAction>
+            </b:MauiActionCollection>
+        </b:MauiEventHandlerBehavior>
+    </ContentPage.Behaviors>
+    <Grid BackgroundColor="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image
+            Source="{Binding TodayImage.ImageBytes, Converter={StaticResource BytesToImageSource}}"
+            Aspect="AspectFill" />
+
+        <StackLayout BackgroundColor="#66000000"
+                     VerticalOptions="End">
+            <StackLayout Padding="8"
+                         IsVisible="{Binding IsLoading}">
+                <ActivityIndicator Color="White"
+                                   IsRunning="{Binding IsLoading}" />
+                <Label TextColor="White"
+                       Text="正在载入"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+
+            <StackLayout Padding="8"
+                         IsVisible="{Binding IsLoading, 
+                         Converter={StaticResource NegativeBool}}">
+                <Label FontSize="28"
+                       TextColor="White"
+                       Margin="0,0,0,8"
+                       Text="{Binding TodayPoetry.Snippet}" />
+                <StackLayout x:Name="DetailStackLayout">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup>
+                            <VisualState Name="Portrait">
+                                <VisualState.Setters>
+                                    <Setter Property="Orientation"
+                                            Value="Vertical" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState Name="Landscape">
+                                <VisualState.Setters>
+                                    <Setter Property="Orientation"
+                                            Value="Horizontal" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <Label FontSize="18"
+                           TextColor="White"
+                           Margin="0,0,8,8"
+                           Text="{Binding TodayPoetry.Author}"
+                           VerticalOptions="Center" />
+                    <Label FontSize="18"
+                           TextColor="White"
+                           Margin="0,0,8,8"
+                           Text="{Binding TodayPoetry.Name}"
+                           VerticalOptions="Center" />
+                    <Button HorizontalOptions="Start"
+                            Margin="0,0,0,8"
+                            Text="查看详细"
+                            Command="{Binding ShowDetailCommand}"
+                            VerticalOptions="Center" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                             IsVisible="{Binding TodayPoetry.Source, 
+                             Converter={StaticResource SourceToBool}, 
+                             ConverterParameter={x:Static lls:TodayPoetrySources.Jinrishici}}">
+                    <Label TextColor="White"
+                           FontSize="Micro"
+                           Text="推荐自" />
+                    <Label TextColor="White"
+                           FontSize="Micro"
+                           TextDecorations="Underline"
+                           Text="今日诗词">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding JinrishiciCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout BackgroundColor="#66000000">
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS"
+                            Value="8,8,8,20" />
+                        <On Platform="Android, UWP"
+                            Value="8,8,8,8" />
+                    </OnPlatform>
+                </StackLayout.Padding>
+                <Label TextColor="White"
+                       FontSize="Micro"
+                       TextDecorations="Underline"
+                       Text="{Binding TodayImage.Copyright}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding CopyrightCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

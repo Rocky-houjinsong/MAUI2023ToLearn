@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using DailyPoetryM.Models;
 using DailyPoetryM.Services;
+using MvvmHelpers;
 using ObservableObject = CommunityToolkit.Mvvm.ComponentModel.ObservableObject;
 
 namespace DailyPoetryM.ViewModels;

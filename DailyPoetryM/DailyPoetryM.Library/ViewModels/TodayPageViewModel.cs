@@ -7,8 +7,11 @@ namespace DailyPoetryM.ViewModels;
 
 public class TodayPageViewModel : ObservableObject
 {
+    #region 构造函数
+
     private ITodayImageService _todayImageService;
 
+    //读取 今日诗词
     private ITodayPoetryService _todayPoetryService;
 
     private IContentNavigationService _contentNavigationService;
@@ -23,6 +26,7 @@ public class TodayPageViewModel : ObservableObject
 
     private bool _isLoading;
 
+    //依赖注入 获得如下
     public TodayPageViewModel(ITodayImageService todayImageService,
         ITodayPoetryService todayPoetryService,
         IContentNavigationService contentNavigationService,
@@ -35,7 +39,7 @@ public class TodayPageViewModel : ObservableObject
         _rootNavigationService = rootNavigationService;
         _browserService = browserService;
         _lazyLoadedCommand =
-            new Lazy<RelayCommand>(new RelayCommand(LoadedCommandFunction));
+            new Lazy<RelayCommand>(new RelayCommand(LoadedCommandFunction)); //页面加载
         _lazyShowDetailCommand =
             new Lazy<AsyncRelayCommand>(
                 new AsyncRelayCommand(ShowDetailCommandFunction));
@@ -49,6 +53,8 @@ public class TodayPageViewModel : ObservableObject
             new Lazy<AsyncRelayCommand>(
                 new AsyncRelayCommand(QueryCommandFunction));
     }
+
+    #endregion
 
     public TodayImage? TodayImage
     {

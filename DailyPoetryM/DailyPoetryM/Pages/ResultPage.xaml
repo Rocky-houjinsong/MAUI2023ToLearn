@@ -23,29 +23,39 @@
     </ContentPage.Resources>
     <VerticalStackLayout>
 <!--列表展示数据-->
-        <ListView  ItemsSource="{Binding Poetries}">
-            <ListView.Behaviors>
-                <scroll:MauiInfiniteScrollBehavior/>
-            </ListView.Behaviors>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Margin="0,8,8,8">
-                            <Label Text="{Binding Name}"
-                                   FontAttributes="Bold"/>
-                            <!--<Label Text="{Binding Converter= {StaticResource PoetryToString }}"
-                               LineBreakMode="TailTruncation"/>-->
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            <ListView.Footer>
-                <StackLayout Padding="8">
-                    <Label Text="{Binding Status}"
-                           HorizontalOptions="Center" />
+    <ListView SelectionMode="None"
+          ItemsSource="{Binding PoetryCollection}"
+          RowHeight="64">
+    <ListView.Behaviors>
+        <scroll:MauiInfiniteScrollBehavior />
+        <b:MauiEventHandlerBehavior EventName="ItemTapped">
+            <b:MauiActionCollection>
+                <b:MauiInvokeCommandAction
+                    Command="{Binding PoetryTappedCommand}"
+                    Converter="{StaticResource ItemToPoetry}" />
+            </b:MauiActionCollection>
+        </b:MauiEventHandlerBehavior>
+    </ListView.Behaviors>
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+                <StackLayout Margin="0,8,8,8">
+                    <Label Text="{Binding Name}"
+                           FontAttributes="Bold" />
+                    <Label
+                        Text="{Binding Converter={StaticResource PoetryToString}}"
+                        LineBreakMode="TailTruncation" />
                 </StackLayout>
-            </ListView.Footer>
-        </ListView>
-</VerticalStackLayout>
+            </ViewCell>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+    <ListView.Footer>
+        <StackLayout Padding="8">
+            <Label Text="{Binding Status}"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+    </ListView.Footer>
+</ListView>
+    </VerticalStackLayout>
 </ContentPage>
 <!--自动换行 TailTruncation-->
