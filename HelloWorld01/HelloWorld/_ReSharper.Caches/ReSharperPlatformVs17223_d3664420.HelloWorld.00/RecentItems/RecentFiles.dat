@@ -15,16 +15,15 @@
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/d:Services/f:PoetryStorage.cs" caret="926" fromTop="9" />
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/d:Services/f:IPoetryStorage.cs" caret="217" fromTop="7" />
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/f:ServiceLocator.cs" caret="386" fromTop="4" />
-    <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/f:MainPage.xaml/z:2-0" caret="4936" fromTop="11" />
+    <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/d:ViewModels/f:MainPageViewModel.cs" caret="3206" fromTop="8" />
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/d:Services/f:TokenService.cs" caret="391" fromTop="10" />
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/d:Services/f:ITokenService.cs" caret="105" fromTop="5" />
-    <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/d:ViewModels/f:MainPageViewModel.cs" caret="4998" fromTop="8" />
+    <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/f:MainPage.xaml/z:2-0" caret="4936" fromTop="11" />
   </RecentFiles>
   <RecentEdits>
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/f:MainPage.xaml/z:2-0" caret="753" fromTop="6" />
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/f:MainPage.xaml.cs" caret="0" fromTop="0" />
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/f:MainPage.xaml.cs" caret="669" fromTop="8" />
-    <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/d:ViewModels/f:MainPageViewModel.cs" caret="0" fromTop="0" />
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/d:ViewModels/f:MainPageViewModel.cs" caret="548" fromTop="16" />
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/f:AppShell.xaml.cs" caret="0" fromTop="0" />
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/f:ServiceLocator.cs" caret="488" fromTop="15" />
@@ -67,5 +66,6 @@
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/f:MainPage.xaml/z:2-0" caret="5068" fromTop="19" />
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/f:MainPage.xaml/z:2-0" caret="5166" fromTop="14" />
     <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/f:MainPage.xaml/z:2-0" caret="5035" fromTop="14" />
+    <File id="2489436D-21A2-4A7C-9E01-269B2A18A97C/d:ViewModels/f:MainPageViewModel.cs" caret="143" fromTop="3" />
   </RecentEdits>
 </RecentFiles>
